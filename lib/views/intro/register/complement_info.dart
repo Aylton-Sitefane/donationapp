@@ -121,6 +121,8 @@ class ComplementInfo extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 48.0, right: 48),
                   child: CostumButton(
+                    width: 190,
+                    height: 70,
                     title: 'Cadastrar perfil',
                     onPressed: () {
                       Navigator.of(context).push(_createRoute(context, const PermitionRequestScreen()));

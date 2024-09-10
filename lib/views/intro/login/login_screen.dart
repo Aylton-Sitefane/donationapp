@@ -72,7 +72,8 @@ class LoginScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 60.0, right: 60),
-              child: CostumButton(title: 'Entrar', onPressed: () {}),
+              child: CostumButton(title: 'Entrar', onPressed: () {},
+              height: 60,),
             ),
             const SizedBox(
               height: 20,

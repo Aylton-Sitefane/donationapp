@@ -11,14 +11,18 @@ class CostumButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed:onPressed,
-    style: ElevatedButton.styleFrom(
-      minimumSize: Size.fromHeight(height ?? 60),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(radious ?? 16)
-      )
-    ),
-      child: Text(title, style: TextStyle(color: color ?? Colors.white),),
+    return SizedBox(
+      width: width ?? 150,
+      height: height ?? 90,
+      child: ElevatedButton(onPressed:onPressed,
+      style: ElevatedButton.styleFrom(
+        minimumSize: Size.fromHeight(height ?? 60),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(radious ?? 16)
+        )
+      ),
+        child: Text(title, style: TextStyle(color: color ?? Colors.white),),
+      ),
     );
   }
 }

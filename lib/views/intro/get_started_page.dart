@@ -1,7 +1,6 @@
 import 'package:donationapp/core/config/assets/app_images.dart';
 import 'package:donationapp/core/config/assets/app_vectors.dart';
 import 'package:donationapp/core/config/theme/app-color.dart';
-import 'package:donationapp/core/config/theme/app_theme.dart';
 import 'package:donationapp/core/config/theme/provider/theme_provider.dart';
 import 'package:donationapp/views/intro/login/login_screen.dart';
 import 'package:donationapp/views/intro/register/register_screen.dart';
@@ -82,7 +81,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
               Padding(
                 padding: const EdgeInsets.only(left: 48.0, right: 48),
                 child: CostumButton(
-        
+                  height: 60,
                   title: 'Login',
                   onPressed: () {
                     Navigator.push(
