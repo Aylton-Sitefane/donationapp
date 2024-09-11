@@ -1,5 +1,7 @@
 import 'package:donationapp/core/config/assets/app_vectors.dart';
 import 'package:donationapp/core/config/theme/app-color.dart';
+import 'package:donationapp/views/homeclient/home/components/institution_list.dart';
+import 'package:donationapp/views/homeclient/home/components/social_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -11,21 +13,18 @@ class HomePageClientScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 60,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              color: AppColor.appbarColor,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ),
-            ),
-            child: Row(
+        backgroundColor: AppColor.appbarColor,
+        toolbarHeight: 150,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
+        ),
+        title: Column(
+          children: [
+            const SizedBox(height: 70,),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SvgPicture.asset(
@@ -40,7 +39,11 @@ class HomePageClientScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(22),
                   ),
                   child: const TextField(
-                    decoration: InputDecoration(labelText: 'Pesquisar...'),
+                    decoration: InputDecoration(
+                      labelText: 'Pesquisar...',
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.all(10),
+                    ),
                   ),
                 ),
                 const Icon(
@@ -50,26 +53,52 @@ class HomePageClientScreen extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Instituicoes',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          ],
+        ),
+      ),
+      body: const SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 20),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Instituições',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    'Ver mais...',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                  ),
+                ],
               ),
-              Text(
-                'Ver mais...',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+            ),
+            SizedBox(height: 20),
+            InstitutionList(), // Lista de instituições
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Questões sociais',
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  ),
+                  Text(
+                    'Ver mais...',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                  ),
+                ],
               ),
-            ],
-          ),
-
-        ],
+            ),
+            SocialList(),
+          ],
+        ),
       ),
     );
   }
-  }
+}

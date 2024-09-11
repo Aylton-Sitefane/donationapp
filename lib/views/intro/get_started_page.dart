@@ -130,7 +130,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                     height: 70,
                     child: OutlinedButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen(),),);
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterScreen(),),);
                       },
                       style: OutlinedButton.styleFrom(
                           backgroundColor: AppColor.primaryColor,
