@@ -1,3 +1,4 @@
+import 'package:donationapp/views/homeclient/favorite/components/favorit_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -12,49 +13,55 @@ class FavoritePageClientScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-        Container(
-        height: 60,
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          color: AppColor.appbarColor,
+        backgroundColor: AppColor.appbarColor,
+        toolbarHeight: 150,
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(20),
             bottomRight: Radius.circular(20),
           ),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        title: Column(
           children: [
-            SvgPicture.asset(
-              AppVectors.donateHeart,
-              height: 40,
-            ),
-            Container(
-              height: 50,
-              width: 240,
-              decoration: BoxDecoration(
-                color: AppColor.lightBackground,
-                borderRadius: BorderRadius.circular(22),
-              ),
-              child: const TextField(
-                decoration: InputDecoration(labelText: 'Pesquisar...'),
-              ),
-            ),
-            const Icon(
-              Icons.logout,
-              color: AppColor.lightBackground,
-              size: 30,
+            const SizedBox(height: 70,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SvgPicture.asset(
+                  AppVectors.donateHeart,
+                  height: 40,
+                ),
+                Container(
+                  height: 50,
+                  width: 240,
+                  decoration: BoxDecoration(
+                    color: AppColor.lightBackground,
+                    borderRadius: BorderRadius.circular(22),
+                  ),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Pesquisar...',
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.all(10),
+                    ),
+                  ),
+                ),
+                const Icon(
+                  Icons.logout,
+                  color: AppColor.lightBackground,
+                  size: 30,
+                ),
+              ],
             ),
           ],
         ),
       ),
-      const SizedBox(
-        height: 20,
-      ),],),
+      body: Column(
+        children: [
+          FavoritList(),
+        ],
+      ),
+
     );
   }
 }

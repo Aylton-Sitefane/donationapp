@@ -40,7 +40,7 @@ class HomePageClientScreen extends StatelessWidget {
                   ),
                   child: const TextField(
                     decoration: InputDecoration(
-                      labelText: 'Pesquisar...',
+                      hintText: 'Pesquisar...',
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(10),
                     ),
@@ -78,7 +78,7 @@ class HomePageClientScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            InstitutionList(), // Lista de instituições
+            InstitutionList(),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.0),
               child: Row(
