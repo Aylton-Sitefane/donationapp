@@ -1,4 +1,5 @@
 import 'package:donationapp/core/config/assets/app_vectors.dart';
+import 'package:donationapp/core/config/theme/app-color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -42,7 +43,7 @@ class SocialList extends StatelessWidget {
             width: width,
             child: Column(
               children: [
-                SvgPicture.asset(AppVectors.nature, height: 100,width: 60,),
+                SvgPicture.asset(AppVectors.nature, height: 100,width: 60, color: AppColor.primaryColor,),
                 Text('Natureza'),
               ],
             ),

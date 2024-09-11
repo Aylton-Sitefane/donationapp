@@ -1,62 +1,65 @@
+import 'package:donationapp/core/config/theme/app-color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import '../../../core/config/assets/app_vectors.dart';
-import '../../../core/config/theme/app-color.dart';
-
-class DonatePageClientScreen extends StatelessWidget {
+class DonatePageClientScreen extends StatefulWidget {
   const DonatePageClientScreen({super.key});
+
+  @override
+  State<DonatePageClientScreen> createState() => _DonatePageClientScreenState();
+}
+
+class _DonatePageClientScreenState extends State<DonatePageClientScreen>
+    with SingleTickerProviderStateMixin {
+  late final TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        title: const Text('Donate Page'),
+        bottom: TabBar(
+          controller: _tabController,
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.white70,
+          indicatorColor: AppColor.primaryColor,
+          indicatorWeight: 3.0,
+          tabs: const [
+            Tab(text: 'Doações feitas'),
+            Tab(text: 'Doações recebidas'),
+          ],
+        ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 60,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              color: AppColor.appbarColor,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: TabBarView(
+          controller: _tabController,
+          children: const <Widget>[
+            Card(
+              margin: EdgeInsets.all(16.0),
+              child: Center(
+                child: Text('Doações feitas'),
               ),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SvgPicture.asset(
-                  AppVectors.donateHeart,
-                  height: 40,
-                ),
-                Container(
-                  height: 50,
-                  width: 240,
-                  decoration: BoxDecoration(
-                    color: AppColor.lightBackground,
-                    borderRadius: BorderRadius.circular(22),
-                  ),
-                  child: const TextField(
-                    decoration: InputDecoration(labelText: 'Pesquisar...'),
-                  ),
-                ),
-                const Icon(
-                  Icons.logout,
-                  color: AppColor.lightBackground,
-                  size: 30,
-                ),
-              ],
+            Card(
+              margin: EdgeInsets.all(16.0),
+              child: Center(
+                child: Text('Doações recebidas'),
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-
-        ],
+          ],
+        ),
       ),
     );
   }
