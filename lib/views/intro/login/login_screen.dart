@@ -1,4 +1,5 @@
 import 'package:donationapp/core/config/assets/app_vectors.dart';
+import 'package:donationapp/views/homeclient/home_client.dart';
 import 'package:donationapp/views/intro/register/register_screen.dart';
 import 'package:donationapp/views/widgets/costum_button.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +73,9 @@ class LoginScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 60.0, right: 60),
-              child: CostumButton(title: 'Entrar', onPressed: () {},
+              child: CostumButton(title: 'Entrar', onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeClient(),),);
+              },
               height: 60,),
             ),
             const SizedBox(

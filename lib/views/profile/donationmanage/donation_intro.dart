@@ -1,5 +1,6 @@
 import 'package:donationapp/core/config/constants.dart';
 import 'package:donationapp/core/config/theme/app-color.dart';
+import 'package:donationapp/views/homeclient/home_client.dart';
 import 'package:donationapp/views/profile/product/add_product_screen.dart';
 import 'package:donationapp/views/widgets/costum_button.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class DonationIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Items> itemData = Items.items;
-    return Scaffold(
+    return  Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
       ),
@@ -93,7 +94,9 @@ class DonationIntro extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 88.0, right: 88),
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeClient(),),);
+                },
                 child: Text(
                   'Pular',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
