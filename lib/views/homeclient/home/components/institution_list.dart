@@ -1,3 +1,4 @@
+import 'package:donationapp/model/institution/institution.dart';
 import 'package:donationapp/views/homeclient/home/components/institution_list_item.dart';
 import 'package:flutter/material.dart';
 
