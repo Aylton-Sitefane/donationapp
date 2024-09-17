@@ -1,16 +1,17 @@
 import 'package:donationapp/core/config/constants.dart';
 import 'package:donationapp/core/config/theme/app-color.dart';
+import 'package:donationapp/model/product/product.dart';
 import 'package:donationapp/views/homeclient/home_client.dart';
 import 'package:donationapp/views/profile/product/add_product_screen.dart';
 import 'package:donationapp/views/widgets/costum_button.dart';
 import 'package:flutter/material.dart';
 
 class DonationIntro extends StatelessWidget {
+
   const DonationIntro({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<Items> itemData = Items.items;
     return  Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -42,21 +43,25 @@ class DonationIntro extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
+          Container(
+            height: 300,
             child: ListView.builder(
-              itemCount: itemData.length,
+              
+              itemCount: Product.productList.length,
               itemBuilder: (BuildContext context, int index) {
+                final product = Product.productList[index];
                 return ListTile(
+                  
                   leading: Container(
-                    height: 70,
+                    height: 350,
                     width: 70,
                     decoration: BoxDecoration(
                       color: AppColor.primaryColor,
                       borderRadius: BorderRadius.circular(44),
                     ),
                   ),
-                  title: Text(itemData[index].name),
-                  subtitle: Text(itemData[index].description),
+                  title: Text(product.name ?? 'Nome do produto'),
+                  subtitle: Text(product.description ?? 'Descricao do'),
                   trailing: SizedBox(
                     width: 100,
                     child: Row(
@@ -77,6 +82,7 @@ class DonationIntro extends StatelessWidget {
               },
             ),
           ),
+          Spacer(),
           Center(
             child: Padding(
               padding: const EdgeInsets.only(left: 88.0, right: 88),
@@ -89,7 +95,7 @@ class DonationIntro extends StatelessWidget {
               ),
             ),
           ),
-          const Spacer(),
+          SizedBox(height: 10,),
           Center(
             child: Padding(
               padding: const EdgeInsets.only(left: 88.0, right: 88),
@@ -97,7 +103,7 @@ class DonationIntro extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeClient(),),);
                 },
-                child: Text(
+                child: const Text(
                   'Pular',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
