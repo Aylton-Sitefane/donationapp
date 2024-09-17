@@ -18,9 +18,9 @@ class InstitutionList extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.only(right: 4.0),
             child: InstitutionListItem(
-              country: institution.place,
-              name: institution.name,
-              imageUrl: institution.imageUrl,
+              country: institution.place ?? "",
+              name: institution.name ?? "",
+              imageUrl: institution.imageUrl ?? "",
             ),
           );
         },

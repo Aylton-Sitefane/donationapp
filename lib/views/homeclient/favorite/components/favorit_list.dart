@@ -19,9 +19,9 @@ class FavoritList extends StatelessWidget {
             child: SizedBox(
               height: 160,
               child: FavoriteListItem(
-                country: favorite.place,
-                name: favorite.name,
-                imageUrl: favorite.imageUrl,
+                country: favorite.place ?? "",
+                name: favorite.name ?? "",
+                imageUrl: favorite.imageUrl ?? "",
               ),
             ),
 
