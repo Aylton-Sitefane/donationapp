@@ -15,48 +15,49 @@ class SocialList extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          Container(
+          SizedBox(
             width: width,
             child: Column(
               children: [
                 SvgPicture.asset(AppVectors.people, height: 100,width: 60,),
-                Text('Pessoas'),
+                const Text('Pessoas', style: TextStyle(fontWeight: FontWeight.bold),),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
-          Container(
+          SizedBox(
             width: width,
             child: Column(
               children: [
                 SvgPicture.asset(AppVectors.church, height: 100,width: 60,),
-                Text('Igrejas'),
+                const Text('Igrejas', style: TextStyle(fontWeight: FontWeight.bold),),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
-          Container(
+          SizedBox(
             width: width,
             child: Column(
               children: [
+                // ignore: deprecated_member_use
                 SvgPicture.asset(AppVectors.nature, height: 100,width: 60, color: AppColor.primaryColor,),
-                Text('Natureza'),
+                const Text('Natureza', style: TextStyle(fontWeight: FontWeight.bold),),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
-          Container(
+          SizedBox(
             width: width,
             child: Column(
               children: [
                 SvgPicture.asset(AppVectors.school, height: 100,width: 60,),
-                Text('Escolas'),
+                const Text('Escolas', style: TextStyle(fontWeight: FontWeight.bold),),
               ],
             ),
           ),
