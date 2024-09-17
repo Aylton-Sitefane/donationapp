@@ -1,3 +1,4 @@
+import 'package:donationapp/model/institution/institution.dart';
 import 'package:donationapp/views/homeclient/favorite/components/favorite_list_item.dart';
 import 'package:flutter/material.dart';
 
@@ -10,12 +11,12 @@ class FavoritList extends StatelessWidget {
 
       child: ListView.builder(
         scrollDirection: Axis.vertical,
-        itemCount: favorites.length,
+        itemCount: institutions.length,
         itemBuilder: (context, index) {
-          final favorite = favorites[index];
+          final favorite = institutions[index];
           return Padding(
             padding: const EdgeInsets.only(right: 4.0),
-            child: Container(
+            child: SizedBox(
               height: 160,
               child: FavoriteListItem(
                 country: favorite.place,

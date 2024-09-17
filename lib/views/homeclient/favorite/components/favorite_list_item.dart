@@ -1,4 +1,3 @@
-import 'package:donationapp/core/config/assets/app_images.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteListItem extends StatelessWidget {
@@ -148,43 +147,3 @@ class ParallaxFlowDelegate extends FlowDelegate {
         backgroundImageKey != oldDelegate.backgroundImageKey;
   }
 }
-
-class Favorite {
-  const Favorite({
-    required this.name,
-    required this.place,
-    required this.imageUrl,
-  });
-
-  final String name;
-  final String place;
-  final String imageUrl;
-}
-const favorites = [
-
-  Favorite(
-    name: 'Machu Picchu',
-    place: 'Peru',
-    imageUrl: AppImages.introImage,
-  ),
-  Favorite(
-    name: 'Vitznau',
-    place: 'Switzerland',
-    imageUrl: AppImages.introImage,
-  ),
-  Favorite(
-    name: 'Bali',
-    place: 'Indonesia',
-    imageUrl: AppImages.introImage,
-  ),
-  Favorite(
-    name: 'Mexico City',
-    place: 'Mexico',
-    imageUrl: AppImages.introImage,
-  ),
-  Favorite(
-    name: 'Cairo',
-    place: 'Egypt',
-    imageUrl: AppImages.introImage,
-  ),
-];

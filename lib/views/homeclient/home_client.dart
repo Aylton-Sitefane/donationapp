@@ -1,11 +1,9 @@
-import 'package:donationapp/core/config/assets/app_vectors.dart';
 import 'package:donationapp/core/config/theme/app-color.dart';
 import 'package:donationapp/views/homeclient/donate/donate_page_client_screen.dart';
 import 'package:donationapp/views/homeclient/favorite/favorite_page_client_screen.dart';
 import 'package:donationapp/views/homeclient/home/home_page_client_screen.dart';
 import 'package:donationapp/views/homeclient/profile/client_page_profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 
 class HomeClient extends StatefulWidget {

@@ -6,7 +6,6 @@ import 'package:donationapp/views/widgets/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../login/login_screen.dart';
 
 class ComplementInfo extends StatelessWidget {
   const ComplementInfo({super.key});

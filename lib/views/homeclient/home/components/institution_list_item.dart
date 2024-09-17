@@ -1,4 +1,3 @@
-import 'package:donationapp/core/config/assets/app_images.dart';
 import 'package:flutter/material.dart';
 
 @immutable
