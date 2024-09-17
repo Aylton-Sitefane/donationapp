@@ -1,4 +1,6 @@
 import 'package:donationapp/core/config/theme/app-color.dart';
+import 'package:donationapp/views/homeclient/donate/done/donation_completed_list.dart';
+import 'package:donationapp/views/homeclient/donate/progress/donation_progress_list.dart';
 import 'package:flutter/material.dart';
 
 class DonatePageClientScreen extends StatefulWidget {
@@ -49,13 +51,13 @@ class _DonatePageClientScreenState extends State<DonatePageClientScreen>
             Card(
               margin: EdgeInsets.all(16.0),
               child: Center(
-                child: Text('Doações feitas'),
+                child: DonationProgressList(),
               ),
             ),
             Card(
               margin: EdgeInsets.all(16.0),
               child: Center(
-                child: Text('Doações recebidas'),
+                child: DonationCompletedList(),
               ),
             ),
           ],

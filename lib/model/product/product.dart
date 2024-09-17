@@ -3,6 +3,7 @@ class Product{
   String? description;
   String? sId;
   String? quantity;
+  String? image;
   bool? deliver;
 
   Product({
@@ -10,6 +11,7 @@ class Product{
     this.name,
     this.description,
     this.quantity,
+    this.image,
     this.deliver,
   });
 
@@ -18,6 +20,7 @@ class Product{
     name = json['name'];
     description = json['description'];
     quantity = json['quantity'];
+    image = json['image'];
     deliver = json['deliver'];
 
   }
@@ -28,6 +31,7 @@ class Product{
     data['name'] = name;
     data['description'] = description;
     data['quantity'] = quantity;
+    data['image'] = image;
     data['deliver'] = deliver;
     return data;
   }
