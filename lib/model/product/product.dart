@@ -2,6 +2,7 @@ class Product{
   String? name;
   String? description;
   String? sId;
+  UserID? userID;
   String? quantity;
   String? image;
   bool? deliver;
@@ -9,6 +10,7 @@ class Product{
   Product({
     this.sId,
     this.name,
+    this.userID,
     this.description,
     this.quantity,
     this.image,
@@ -20,6 +22,8 @@ class Product{
     name = json['name'];
     description = json['description'];
     quantity = json['quantity'];
+    userID =
+    json['userID'] != null ? UserID.fromJson(json['userID']) : null;
     image = json['image'];
     deliver = json['deliver'];
 
@@ -31,6 +35,9 @@ class Product{
     data['name'] = name;
     data['description'] = description;
     data['quantity'] = quantity;
+     if (userID != null) {
+      data['userID'] = userID!.toJson();
+    }
     data['image'] = image;
     data['deliver'] = deliver;
     return data;
@@ -44,4 +51,22 @@ class Product{
 
 
 
+}
+class UserID {
+  String? sId;
+  String? name;
+
+  UserID({this.sId, this.name});
+
+  UserID.fromJson(Map<String, dynamic> json) {
+    sId = json['_id'];
+    name = json['name'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['name'] = name;
+    return data;
+  }
 }
