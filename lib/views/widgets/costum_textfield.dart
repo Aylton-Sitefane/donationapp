@@ -1,23 +1,51 @@
+import 'package:donationapp/core/config/theme/app-color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class CoustumTextField extends StatelessWidget {
-  final String? hint;
-  final String label;
-  final double? width;
+class CustomTextField extends StatelessWidget {
+  final String labelText;
   final double? height;
-  const CoustumTextField({super.key, required this.hint, required this.label, this.width, this.height});
+  final TextEditingController controller;
+  final TextInputType? inputType;
+  final int? lineNumber;
+  final void Function(String?) onSave;
+  final String? Function(String?)? validator;
+
+  const CustomTextField({
+    super.key,
+    required this.labelText,
+    required this.onSave,
+    this.inputType = TextInputType.text,
+    this.lineNumber = 1,
+    this.validator, required this.controller, this.height,
+  });
+
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextField(
-        decoration: InputDecoration(
-          labelText: label,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
+    return SizedBox(
+      height: height,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextFormField(
+          controller: controller,
+          maxLines: lineNumber,
+          decoration: InputDecoration(
+            labelText: labelText,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8.0),
+              borderSide: const BorderSide(color: AppColor.appbarColor),
+            ),
           ),
-          hintText: hint,
+          keyboardType: inputType,
+          onSaved: (value) {
+            onSave(value?.isEmpty ?? true ? null : value);
+          },
+          validator: validator,
+          inputFormatters: [
+            LengthLimitingTextInputFormatter(700),
+            if (inputType == TextInputType.number) FilteringTextInputFormatter.allow(RegExp(r'^-?\d*\.?\d*')),
+          ],
         ),
       ),
     );
